@@ -1,0 +1,1 @@
+cubemx_project2_exit\startup_stm32f103xb.o: startup_stm32f103xb.s

@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"cubemx_project2_exit\startup_stm32f103xb.o"
+"cubemx_project2_exit\main.o"
+"cubemx_project2_exit\gpio.o"
+"cubemx_project2_exit\stm32f1xx_it.o"
+"cubemx_project2_exit\stm32f1xx_hal_msp.o"
+"cubemx_project2_exit\stm32f1xx_hal_gpio_ex.o"
+"cubemx_project2_exit\stm32f1xx_hal_tim.o"
+"cubemx_project2_exit\stm32f1xx_hal_tim_ex.o"
+"cubemx_project2_exit\stm32f1xx_hal.o"
+"cubemx_project2_exit\stm32f1xx_hal_rcc.o"
+"cubemx_project2_exit\stm32f1xx_hal_rcc_ex.o"
+"cubemx_project2_exit\stm32f1xx_hal_gpio.o"
+"cubemx_project2_exit\stm32f1xx_hal_dma.o"
+"cubemx_project2_exit\stm32f1xx_hal_cortex.o"
+"cubemx_project2_exit\stm32f1xx_hal_pwr.o"
+"cubemx_project2_exit\stm32f1xx_hal_flash.o"
+"cubemx_project2_exit\stm32f1xx_hal_flash_ex.o"
+"cubemx_project2_exit\stm32f1xx_hal_exti.o"
+"cubemx_project2_exit\system_stm32f1xx.o"
+--strict --scatter "CubeMX_project2_exit\CubeMX_project2_exit.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "CubeMX_project2_exit.map" -o CubeMX_project2_exit\CubeMX_project2_exit.axf

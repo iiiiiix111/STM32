@@ -1,0 +1,17 @@
+-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c
+-fno-rtti -funsigned-char -fshort-enums -fshort-wchar
+-D__RTX -D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./RTE/Device/STM32F103C8
+-I./RTE/CMSIS
+-I./RTE/_Target_1
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Include
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/DSP/PrivateInclude
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/NN/Include
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/Include
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Include
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Include1
+-IC:/Users/13440/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/RTOS/RTX/INC
+-IC:/Users/13440/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+-IC:/Users/13440/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc
+-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_
+-o ./objects/main.o -MD "main.c"

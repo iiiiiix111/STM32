@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"cubemx_project1\startup_stm32f103xb.o"
+"cubemx_project1\main.o"
+"cubemx_project1\gpio.o"
+"cubemx_project1\stm32f1xx_it.o"
+"cubemx_project1\stm32f1xx_hal_msp.o"
+"cubemx_project1\stm32f1xx_hal_gpio_ex.o"
+"cubemx_project1\stm32f1xx_hal_tim.o"
+"cubemx_project1\stm32f1xx_hal_tim_ex.o"
+"cubemx_project1\stm32f1xx_hal.o"
+"cubemx_project1\stm32f1xx_hal_rcc.o"
+"cubemx_project1\stm32f1xx_hal_rcc_ex.o"
+"cubemx_project1\stm32f1xx_hal_gpio.o"
+"cubemx_project1\stm32f1xx_hal_dma.o"
+"cubemx_project1\stm32f1xx_hal_cortex.o"
+"cubemx_project1\stm32f1xx_hal_pwr.o"
+"cubemx_project1\stm32f1xx_hal_flash.o"
+"cubemx_project1\stm32f1xx_hal_flash_ex.o"
+"cubemx_project1\stm32f1xx_hal_exti.o"
+"cubemx_project1\system_stm32f1xx.o"
+--strict --scatter "CubeMX_project1\CubeMX_project1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "CubeMX_project1.map" -o CubeMX_project1\CubeMX_project1.axf
