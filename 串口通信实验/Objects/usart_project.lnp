@@ -1,0 +1,8 @@
+
+".\objects\stm32f10x_it.o"
+".\objects\main.o"
+".\objects\nvic.o"
+".\objects\user_usart.o"
+--ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --strict --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\usart_project.map" -o .\Objects\usart_project.axf

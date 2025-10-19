@@ -136,6 +136,25 @@ void SysTick_Handler(void)
 {
 }
 
+//中断服务函数，前面在User_USART.c  void User_USART_Config(void)函数中
+//USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);使能了数据接收中断，所以
+//将处理接收数据时的中断服务
+void USART1_IRQHandler(void)
+{
+
+    uint8_t temp;
+
+    if(USART_GetFlagStatus(USART1, USART_IT_RXNE) != RESET)
+    {
+        temp = USART_ReceiveData(USART1);
+        USART_SendData(USART1, temp);
+
+
+    }
+
+
+}
+
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

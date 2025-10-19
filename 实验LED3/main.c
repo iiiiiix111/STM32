@@ -1,59 +1,51 @@
-#include "stm32f10x_rcc.h"
-#include "stm32f10x_gpio.h"
-#include "stm32f10x.h"   // 头文件
+#include "stdio.h"
+#include "stdlib.h"
+#include "stm32f10x.h"
 
+// 全局变量
+int g_init = 1;
+int g_uninit;
+const int g_const = 100;
 
-#define __STM32F10x_CONF_H
-#include ".\RTE\Device\STM32F103C8\stm32f10x_conf.h"
+void func() {
+    int local = 10;               // 栈变量
+    static int static_var = 20;   // 静态变量
+    int *heap = malloc(4);        // 堆变量
 
-void GPIO_Config(void);
-void delay_ms(int ms);
+    printf("local: %p\r\n", &local);
+    printf("static_var: %p\r\n", &static_var);
+    printf("heap: %p\r\n", heap);
 
-int main(void)
-{
-    // 初始化 GPIO
-    GPIO_Config();
-
-    while (1)
-    {
-        // LED1
-        GPIO_SetBits(GPIOA, GPIO_Pin_0);
-        delay_ms(300);
-        GPIO_ResetBits(GPIOA, GPIO_Pin_0);
-
-        // LED2
-        GPIO_SetBits(GPIOA, GPIO_Pin_1);
-        delay_ms(300);
-        GPIO_ResetBits(GPIOA, GPIO_Pin_1);
-
-        // LED3
-        GPIO_SetBits(GPIOA, GPIO_Pin_2);
-        delay_ms(300);
-        GPIO_ResetBits(GPIOA, GPIO_Pin_2);
-    }
+    free(heap);
 }
 
-void GPIO_Config(void)
-{
-    // 1. 开启 GPIOA 时钟
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+int main() {
+    // 初始化串口
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);
+    GPIO_InitTypeDef gpio;
+    gpio.GPIO_Mode = GPIO_Mode_AF_PP;
+    gpio.GPIO_Pin = GPIO_Pin_9;
+    gpio.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &gpio);
+    gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    gpio.GPIO_Pin = GPIO_Pin_10;
+    GPIO_Init(GPIOA, &gpio);
 
-    // 2. 配置 PA0, PA1, PA2 为推挽输出
-    GPIO_InitTypeDef GPIO_InitStruct;
-    GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2;
-    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;   // 推挽输出
-    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz; // 输出速度
-    GPIO_Init(GPIOA, &GPIO_InitStruct);
-}
+    USART_InitTypeDef usart;
+    usart.USART_BaudRate = 115200;
+    usart.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    usart.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+    usart.USART_Parity = USART_Parity_No;
+    usart.USART_StopBits = USART_StopBits_1;
+    usart.USART_WordLength = USART_WordLength_8b;
+    USART_Init(USART1, &usart);
+    USART_Cmd(USART1, ENABLE);
 
-void delay_ms(int ms)
-{
-    int i, j;
-    for (i = 0; i < ms; i++)
-    {
-        for (j = 0; j < 7200; j++) // 粗略延时，72MHz 时钟
-        {
-            __NOP();
-        }
-    }
+    printf("g_init: %p\r\n", &g_init);
+    printf("g_uninit: %p\r\n", &g_uninit);
+    printf("g_const: %p\r\n", &g_const);
+
+    func();
+
+    while (1);
 }

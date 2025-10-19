@@ -1,51 +1,51 @@
-#include "stm32f10x.h"
-#include "board.h"
 #include "stdio.h"
+#include "stdlib.h"
+#include "stm32f10x.h"
 
-int main(void)
-{
-    board_init(); 
+// 全局变量
+int g_init = 1;
+int g_uninit;
+const int g_const = 100;
 
-    // 使能GPIO时钟
-    RCC->APB2ENR |= (1 << 2)  // GPIOA
-                 | (1 << 3)   // GPIOB  
-                 | (1 << 4);  // GPIOC
-	
-    // 配置PC13为推挽输出（修改为PC13）
-    GPIOC->CRH &= ~(0xF << (4 * (13 - 8))); 
-    GPIOC->CRH |=  (0x1 << (4 * (13 - 8)));  
+void func() {
+    int local = 10;               // 栈变量
+    static int static_var = 20;   // 静态变量
+    int *heap = malloc(4);        // 堆变量
 
-    // 配置PA0为推挽输出（低8位，使用CRL寄存器）
-    GPIOA->CRL &= ~(0xF << (4 * 0)); 
-    GPIOA->CRL |=  (0x1 << (4 * 0)); 
+    printf("local: %p\r\n", &local);
+    printf("static_var: %p\r\n", &static_var);
+    printf("heap: %p\r\n", heap);
 
-    // 配置PB0为推挽输出（低8位，使用CRL寄存器）
-    GPIOB->CRL &= ~(0xF << (4 * 0)); 
-    GPIOB->CRL |=  (0x1 << (4 * 0)); 
+    free(heap);
+}
 
-    // 初始化输出状态
-    GPIOC->ODR |=  (1 << 13);  // PC13高电平
-    GPIOA->ODR |=  (1 << 0);   // PA0高电平  
-    GPIOB->ODR |=  (1 << 0);   // PB0高电平
-	
-    while (1)
-    {
-        // 状态1：PC13低，PA0高，PB0高 （绿灯闪烁）
-        GPIOC->ODR &= ~(1 << 13); 
-        GPIOA->ODR |=  (1 << 0);  
-        GPIOB->ODR |=  (1 << 0); 
-        delay_ms(1000);
+int main() {
+    // 初始化串口
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);
+    GPIO_InitTypeDef gpio;
+    gpio.GPIO_Mode = GPIO_Mode_AF_PP;
+    gpio.GPIO_Pin = GPIO_Pin_9;
+    gpio.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &gpio);
+    gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    gpio.GPIO_Pin = GPIO_Pin_10;
+    GPIO_Init(GPIOA, &gpio);
 
-        // 状态2：PC13高，PA0低，PB0高 （蓝灯闪烁）
-        GPIOC->ODR |=  (1 << 13); 
-        GPIOA->ODR &= ~(1 << 0);   
-        GPIOB->ODR |=  (1 << 0);  
-        delay_ms(1000);
+    USART_InitTypeDef usart;
+    usart.USART_BaudRate = 115200;
+    usart.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    usart.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+    usart.USART_Parity = USART_Parity_No;
+    usart.USART_StopBits = USART_StopBits_1;
+    usart.USART_WordLength = USART_WordLength_8b;
+    USART_Init(USART1, &usart);
+    USART_Cmd(USART1, ENABLE);
 
-        // 状态3：PC13高，PA0高，PB0低 （红灯闪烁）
-        GPIOC->ODR |=  (1 << 13); 
-        GPIOA->ODR |=  (1 << 0);  
-        GPIOB->ODR &= ~(1 << 0); 
-        delay_ms(1000);
-    }
+    printf("g_init: %p\r\n", &g_init);
+    printf("g_uninit: %p\r\n", &g_uninit);
+    printf("g_const: %p\r\n", &g_const);
+
+    func();
+
+    while (1);
 }

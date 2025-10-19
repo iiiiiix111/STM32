@@ -4,6 +4,8 @@
 ".\objects\system_stm32f10x.o"
 ".\objects\main.o"
 ".\objects\stm32f10x_it.o"
+".\objects\nvic.o"
+".\objects\user_usart.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_adc.o"
 ".\objects\stm32f10x_bkp.o"

@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: lie 1344041926@qq.com, wu, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\bin\
+C Compiler:      ArmClang.exe V13.0.0 (LLVM 13.0.0git)
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      UL2CM3.DLL V1.164.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+C:\STM32\串口通信实验\usart_project.uvprojx
+Project File Date:  10/15/2025
+
+<h2>Output:</h2>
+*** Using Compiler '', folder: 'C:\Keil_v5\ARM\ARMCLANG\bin\'
+Rebuild target 'Target 1'
+compiling main.c...
+*** Error: CreateProcess failed, Command: '"C:\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\main.__i"'
+compiling stm32f10x_it.c...
+*** Error: CreateProcess failed, Command: '"C:\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\stm32f10x_it.__i"'
+compiling NVIC.c...
+*** Error: CreateProcess failed, Command: '"C:\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\nvic.__i"'
+compiling User_USART.c...
+*** Error: CreateProcess failed, Command: '"C:\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\user_usart.__i"'
+linking...
+.\Objects\usart_project.axf: error: L6002U: Could not open file .\objects\stm32f10x_it.o: No such file or directory
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning, 0 error and 1 fatal error messages.
+".\Objects\usart_project.axf" - 1 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil.STM32F1xx_DFP.2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\13440\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

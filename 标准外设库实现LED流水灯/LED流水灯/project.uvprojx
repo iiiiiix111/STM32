@@ -438,6 +438,21 @@
               <FileType>5</FileType>
               <FilePath>.\user\stm32f10x_it.h</FilePath>
             </File>
+            <File>
+              <FileName>NVIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\NVIC.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\User_USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user\User_USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
