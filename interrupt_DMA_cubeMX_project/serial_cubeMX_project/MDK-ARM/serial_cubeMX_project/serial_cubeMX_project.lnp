@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"serial_cubemx_project\startup_stm32f103xb.o"
+"serial_cubemx_project\main.o"
+"serial_cubemx_project\gpio.o"
+"serial_cubemx_project\dma.o"
+"serial_cubemx_project\usart.o"
+"serial_cubemx_project\stm32f1xx_it.o"
+"serial_cubemx_project\stm32f1xx_hal_msp.o"
+"serial_cubemx_project\stm32f1xx_hal_gpio_ex.o"
+"serial_cubemx_project\stm32f1xx_hal_tim.o"
+"serial_cubemx_project\stm32f1xx_hal_tim_ex.o"
+"serial_cubemx_project\stm32f1xx_hal_uart.o"
+"serial_cubemx_project\stm32f1xx_hal.o"
+"serial_cubemx_project\stm32f1xx_hal_rcc.o"
+"serial_cubemx_project\stm32f1xx_hal_rcc_ex.o"
+"serial_cubemx_project\stm32f1xx_hal_gpio.o"
+"serial_cubemx_project\stm32f1xx_hal_dma.o"
+"serial_cubemx_project\stm32f1xx_hal_cortex.o"
+"serial_cubemx_project\stm32f1xx_hal_pwr.o"
+"serial_cubemx_project\stm32f1xx_hal_flash.o"
+"serial_cubemx_project\stm32f1xx_hal_flash_ex.o"
+"serial_cubemx_project\stm32f1xx_hal_exti.o"
+"serial_cubemx_project\system_stm32f1xx.o"
+--strict --scatter "serial_cubeMX_project\serial_cubeMX_project.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "serial_cubeMX_project.map" -o serial_cubeMX_project\serial_cubeMX_project.axf
