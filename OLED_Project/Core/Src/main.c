@@ -120,6 +120,7 @@ uint8_t OLED_Test_Communication(void)
     
     uint8_t found = 0;
     
+		
     // 先扫描所有地址，显示详细结果
     uint8_t scan_msg[] = "详细扫描OLED地址:\r\n";
     HAL_UART_Transmit(&huart1, scan_msg, sizeof(scan_msg)-1, 1000);
