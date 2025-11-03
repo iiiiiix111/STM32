@@ -1,0 +1,11 @@
+ucosiii_test\cpu_core.o: C:\baidunetdiskdownload\Software\uC-CPU\cpu_core.c
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-CPU\cpu_core.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-CPU\ARM-Cortex-M3\RealView\cpu.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-CPU\cpu_def.h
+ucosiii_test\cpu_core.o: ../Core/Src/OS/cpu_cfg.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-LIB\lib_def.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-LIB\lib_mem.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-CPU\cpu_core.h
+ucosiii_test\cpu_core.o: ../Core/Src/OS/lib_cfg.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-LIB\lib_str.h
+ucosiii_test\cpu_core.o: ..\uCOSIII\uC-LIB\lib_ascii.h

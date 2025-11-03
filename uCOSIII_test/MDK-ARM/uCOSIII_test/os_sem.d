@@ -1,0 +1,15 @@
+ucosiii_test\os_sem.o: C:\baidunetdiskdownload\Software\uCOS-III\Source\os_sem.c
+ucosiii_test\os_sem.o: ..\uCOSIII\uCOS-III\Source\os.h
+ucosiii_test\os_sem.o: ../Core/Src/OS/os_cfg.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-CPU\ARM-Cortex-M3\RealView\cpu.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-CPU\cpu_def.h
+ucosiii_test\os_sem.o: ../Core/Src/OS/cpu_cfg.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-CPU\cpu_core.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-LIB\lib_def.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-LIB\lib_mem.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-CPU\cpu_core.h
+ucosiii_test\os_sem.o: ../Core/Src/OS/lib_cfg.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-LIB\lib_str.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uC-LIB\lib_ascii.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uCOS-III\Source\os_type.h
+ucosiii_test\os_sem.o: ..\uCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h
